@@ -15,7 +15,7 @@ public class BancoController {
     public BancoController() {
         contas = new ArrayList<>();
         funcionarios = new ArrayList<>();
-        carregarDados(); // Carrega os dados ao inicializar o controlador
+        carregarDados();
     }
 
     // Método para abrir uma nova conta
