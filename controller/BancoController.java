@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-package Banco_Malvader.controller;
-
-//*No método salvarDados(), chame DataManager.salvarContas(contas, "contas.dat").
-
-//*No método carregarDados(), chame DataManager.carregarContas("contas.dat").
-
-public class BancoController {
-
-=======
-package controller;
-
 import Banco_Malvader.model.Conta;
 import Banco_Malvader.model.Funcionario;
 import util.DataManager;
@@ -95,5 +83,4 @@ public class BancoController {
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
->>>>>>> d7b1097 (commit)
 }

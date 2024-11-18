@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-package Banco_Malvader.util;
-
-public class DataManager {
-
-=======
 package util;
 
 import java.io.*;
@@ -104,5 +98,4 @@ public class DataManager {
             return null;
         }
     }
->>>>>>> d7b1097 (commit)
 }

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-package Banco_Malvader.dao;
-
-public class FuncionarioDAO {
-
-=======
 package dao;
 
 import Banco_Malvader.model.Funcionario;
@@ -163,5 +157,4 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
     }
->>>>>>> d7b1097 (commit)
 }

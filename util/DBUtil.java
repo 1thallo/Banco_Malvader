@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-package Banco_Malvader.util;
-
-public class DBUtil {
-
-=======
 package util;
 
 import java.sql.Connection;
@@ -41,5 +35,4 @@ public class DBUtil {
             e.printStackTrace();
         }
     }
->>>>>>> d7b1097 (commit)
 }

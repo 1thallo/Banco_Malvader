@@ -1,4 +1,4 @@
-package Banco_Malvader;
+package initial;
 
 public class ContaCorrente {
 
