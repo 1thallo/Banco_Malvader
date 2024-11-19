@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package Banco_Malvader;
+=======
+package initial;
+>>>>>>> d7b1097 (commit)
 
 import java.sql.Connection;
 import java.sql.DriverManager;

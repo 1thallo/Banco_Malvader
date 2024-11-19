@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 package Banco_Malvader.view;
 
 import java.util.Scanner;
 import Banco_Malvader.dao.ClienteDAO;
+=======
+package view;
+
+import java.util.Scanner;
+import dao.ClienteDAO;
+>>>>>>> d7b1097 (commit)
 import Banco_Malvader.model.Cliente;
 
 public class CadastroClienteView {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package Banco_Malvader;
+=======
+package initial;
+>>>>>>> d7b1097 (commit)
 
 import java.time.LocalDate;
 
@@ -22,6 +26,13 @@ public abstract class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+<<<<<<< HEAD
+=======
+    public Usuario(int id2, String nome2, String cpf2, LocalDate dataNascimento2, String telefone2, Endereco endereco) {
+        // TODO Auto-generated constructor stub
+    }
+
+>>>>>>> d7b1097 (commit)
     // Método abstrato para login - será implementado nas subclasses
     public abstract boolean login(String senha);
 
