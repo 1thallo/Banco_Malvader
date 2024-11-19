@@ -1,4 +1,4 @@
-package Banco_Malvader.model;
+package model.Banco_Malvader.model;
 
 import java.time.LocalDate;
 

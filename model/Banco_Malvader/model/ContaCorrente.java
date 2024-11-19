@@ -1,25 +1,32 @@
-package Banco_Malvader.model;
+package model.Banco_Malvader.model;
 
 public class ContaCorrente extends Conta {
-    private double limite; // Limite de crédito da conta corrente
+    private double limite; // limite da conta corrente
 
-    // Construtor
-    public ContaCorrente(int numero, double saldo, double limite) {
-        super(numero, saldo, "Corrente");
-        this.limite = limite;
+    // construtor
+    public ContaCorrente(int numero, double saldo, String tipoConta, double limite) {
+        super(numero, saldo, tipoConta); // chama o construtor da classe pai (Conta)
+        this.limite = limite; // define o limite
     }
 
-    // Método para verificar o limite de crédito
-    public double verificarLimite() {
+    // getter e setter para o limite
+    public double getLimite() {
         return limite;
     }
 
-    // Sobrescrita do método exibirInformacoes para mostrar dados específicos da
-    // Conta Corrente
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
     @Override
     public void exibirInformacoes() {
-        System.out.println("Conta Corrente - Número: " + numero);
-        System.out.println("Saldo: R$ " + saldo);
-        System.out.println("Limite: R$ " + limite);
+        System.out.println("conta corrente - número: " + numero);
+        System.out.println("saldo: R$ " + saldo);
+        System.out.println("limite: R$ " + limite);
+    }
+
+    @Override
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

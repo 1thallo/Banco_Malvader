@@ -8,7 +8,7 @@ public class ConnectionFactory {
 
     private static final String URL = "jdbc:mysql://localhost:3306/mydb"; // URL do banco de dados
     private static final String USER = "root"; // Usuário do banco de dados
-    private static final String PASSWORD = "fFLUZAO2004."; // Senha do banco de dados
+    private static final String PASSWORD = ""; // Senha do banco de dados
     private static Connection connection = null;
 
     // Método para obter a conexão com o banco de dados
@@ -47,5 +47,9 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void rollback() {
+        throw new UnsupportedOperationException("Unimplemented method 'rollback'");
     }
 }

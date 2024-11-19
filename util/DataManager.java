@@ -4,8 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Banco_Malvader.model.Conta;
-import Banco_Malvader.model.Funcionario;
+import model.Banco_Malvader.model.*;
 
 public class DataManager {
 

@@ -1,15 +1,21 @@
-package Banco_Malvader.model;
+package model.Banco_Malvader.model;
 
 public abstract class Conta {
     protected int numero;
     protected double saldo;
-    protected String tipoConta; // Pode ser "Poupança" ou "Corrente"
+    protected String tipoConta; // tipo de conta, "Poupança" ou "Corrente"
+    protected double limite;
 
-    // Construtor
     public Conta(int numero, double saldo, String tipoConta) {
         this.numero = numero;
         this.saldo = saldo;
         this.tipoConta = tipoConta;
+    }
+
+    // construtor
+    public void ContaCorrente(int numero, double saldo, String tipoConta, double limite) {
+        super(numero, saldo, tipoConta); // chama o construtor da classe pai (Conta)
+        this.limite = limite; // define o limite
     }
 
     public int getNumero() {
@@ -20,33 +26,56 @@ public abstract class Conta {
         this.numero = numero;
     }
 
-    // Método para depositar um valor
+    // método para depositar
     public void depositar(double valor) {
         if (valor > 0) {
             saldo += valor;
-            System.out.println("Depósito de R$ " + valor + " realizado com sucesso!");
+            System.out.println("depósito de R$ " + valor + " realizado com sucesso!");
         } else {
-            System.out.println("Valor inválido para depósito.");
+            System.out.println("valor inválido para depósito.");
         }
     }
 
-    // Método para sacar um valor
+    // método para sacar
     public boolean sacar(double valor) {
         if (valor > 0 && saldo >= valor) {
             saldo -= valor;
-            System.out.println("Saque de R$ " + valor + " realizado com sucesso!");
+            System.out.println("saque de R$ " + valor + " realizado com sucesso!");
             return true;
         } else {
-            System.out.println("Saldo insuficiente ou valor inválido.");
+            System.out.println("saldo insuficiente ou valor inválido.");
             return false;
         }
     }
 
-    // Método para consultar o saldo da conta
+    // método para consultar saldo
     public double consultarSaldo() {
         return saldo;
     }
 
-    // Método abstrato para cada tipo de conta mostrar informações específicas
+    // método abstrato para exibir informações específicas
     public abstract void exibirInformacoes();
+
+    public String getTipoConta() {
+        return tipoConta;
+    }
+
+    public void setTipoConta(String tipoConta) {
+        this.tipoConta = tipoConta;
+    }
+
+    public ContaPoupanca getCliente() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCliente'");
+    }
+
+    public double getSaldo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSaldo'");
+    }
+
+    public void setCliente(Cliente cliente) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCliente'");
+    }
 }

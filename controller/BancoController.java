@@ -1,5 +1,7 @@
-import Banco_Malvader.model.Conta;
-import Banco_Malvader.model.Funcionario;
+package controller;
+
+import model.Banco_Malvader.model.Conta;
+import model.Banco_Malvader.model.Funcionario;
 import util.DataManager;
 
 import java.util.ArrayList;

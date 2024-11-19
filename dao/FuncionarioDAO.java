@@ -1,21 +1,21 @@
 package dao;
 
-import Banco_Malvader.model.Funcionario;
-import dao.ConnectionFactory;
+import model.Banco_Malvader.model.*;
+// import dao.ConnectionFactory;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
 public class FuncionarioDAO {
 
     // Inserir funcionário
-    public void inserirFuncionario(Funcionario funcionario) {
+    public boolean inserirFuncionario(Funcionario funcionario) throws SQLException {
         String sqlUsuario = "INSERT INTO TB_USUARIO (NO_USUARIO, NR_CPF_USUARIO, DT_NASCIMENTO, NR_TELEFONE, SENHA, TP_USUARIO) VALUES (?, ?, ?, ?, ?, ?)";
         String sqlFuncionario = "INSERT INTO TB_FUNCIONARIO (CD_FUNCIONARIO, NO_CARGO, ID_USUARIO) VALUES (?, ?, ?)";
 
         try (Connection connection = ConnectionFactory.conectar()) {
-            connection.setAutoCommit(false); // Transação para garantir consistência
+            connection.setAutoCommit(false);
 
             try (PreparedStatement stmtUsuario = connection.prepareStatement(sqlUsuario,
                     Statement.RETURN_GENERATED_KEYS)) {
@@ -27,7 +27,6 @@ public class FuncionarioDAO {
                 stmtUsuario.setString(6, "FUNCIONARIO");
                 stmtUsuario.executeUpdate();
 
-                // Obter o ID gerado para o usuário
                 ResultSet generatedKeys = stmtUsuario.getGeneratedKeys();
                 if (generatedKeys.next()) {
                     funcionario.setId(generatedKeys.getInt(1));
@@ -41,16 +40,14 @@ public class FuncionarioDAO {
                 stmtFuncionario.executeUpdate();
             }
 
-            connection.commit(); // Confirmar transação
+            connection.commit();
             System.out.println("Funcionário inserido com sucesso!");
+            return true;
         } catch (SQLException e) {
-            try {
-                connection.rollback(); // Rollback em caso de erro
-            } catch (SQLException rollbackEx) {
-                System.err.println("Erro ao fazer rollback: " + rollbackEx.getMessage());
-            }
+            ConnectionFactory.rollback();
             System.err.println("Erro ao inserir funcionário: " + e.getMessage());
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -87,7 +84,7 @@ public class FuncionarioDAO {
     }
 
     // Atualizar dados de um funcionário
-    public void atualizarFuncionario(Funcionario funcionario) {
+    public void atualizarFuncionario(Funcionario funcionario) throws SQLException {
         String sqlUsuario = "UPDATE TB_USUARIO SET NO_USUARIO = ?, NR_CPF_USUARIO = ?, DT_NASCIMENTO = ?, NR_TELEFONE = ? WHERE ID_USUARIO = ?";
         String sqlFuncionario = "UPDATE TB_FUNCIONARIO SET NO_CARGO = ? WHERE CD_FUNCIONARIO = ?";
 
@@ -112,18 +109,14 @@ public class FuncionarioDAO {
             connection.commit();
             System.out.println("Funcionário atualizado com sucesso!");
         } catch (SQLException e) {
-            try {
-                connection.rollback(); // Rollback em caso de erro
-            } catch (SQLException rollbackEx) {
-                System.err.println("Erro ao fazer rollback: " + rollbackEx.getMessage());
-            }
+            ConnectionFactory.rollback(); // Rollback em caso de erro
             System.err.println("Erro ao atualizar funcionário: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     // Excluir funcionário
-    public void excluirFuncionario(String codigoFuncionario) {
+    public void excluirFuncionario(String codigoFuncionario) throws SQLException {
         String sqlFuncionario = "DELETE FROM TB_FUNCIONARIO WHERE CD_FUNCIONARIO = ?";
         String sqlUsuario = "DELETE FROM TB_USUARIO WHERE ID_USUARIO = ?";
 
@@ -148,11 +141,7 @@ public class FuncionarioDAO {
                 System.out.println("Funcionário excluído com sucesso!");
             }
         } catch (SQLException e) {
-            try {
-                connection.rollback(); // Rollback em caso de erro
-            } catch (SQLException rollbackEx) {
-                System.err.println("Erro ao fazer rollback: " + rollbackEx.getMessage());
-            }
+            ConnectionFactory.rollback(); // Rollback em caso de erro
             System.err.println("Erro ao excluir funcionário: " + e.getMessage());
             e.printStackTrace();
         }

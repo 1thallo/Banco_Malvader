@@ -4,7 +4,7 @@ import initial.ConexaoBanco;
 
 import java.sql.*;
 
-import Banco_Malvader.model.Cliente;
+import model.Banco_Malvader.model.*;
 
 public class ClienteDAO {
 
@@ -128,5 +128,9 @@ public class ClienteDAO {
             System.err.println("Erro ao deletar cliente: " + e.getMessage());
         }
         return deletado;
+    }
+
+    public Cliente consultarCliente(int int1) {
+        throw new UnsupportedOperationException("Unimplemented method 'consultarCliente'");
     }
 }

@@ -1,8 +1,9 @@
 package view;
 
 import java.util.Scanner;
+
+import model.Banco_Malvader.model.Cliente;
 import dao.ClienteDAO;
-import Banco_Malvader.model.Cliente;
 
 public class CadastroClienteView {
 
@@ -45,11 +46,11 @@ public class CadastroClienteView {
                 senha);
         ClienteDAO clienteDAO = new ClienteDAO();
 
-        if (clienteDAO.cadastrarCliente(cliente)) {
-            System.out.println("Cliente cadastrado com sucesso!");
-        } else {
-            System.out.println("Falha ao cadastrar cliente.");
-        }
+        // if (clienteDAO.cadastrarCliente(cliente)) {
+        // System.out.println("Cliente cadastrado com sucesso!");
+        // } else {
+        // System.out.println("Falha ao cadastrar cliente.");
+        // }
 
         scanner.close();
     }

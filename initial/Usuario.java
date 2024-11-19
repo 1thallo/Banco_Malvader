@@ -22,8 +22,8 @@ public abstract class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public Usuario(int id2, String nome2, String cpf2, LocalDate dataNascimento2, String telefone2, Endereco endereco) {
-        // TODO Auto-generated constructor stub
+    public Usuario() {
+        // Construtor vazio
     }
 
     // Método abstrato para login - será implementado nas subclasses
