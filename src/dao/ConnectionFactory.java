@@ -15,8 +15,8 @@ public class ConnectionFactory {
 
     private ConnectionFactory() {
         this.url = System.getenv("jdbc:mysql://localhost:3306/mydb");
-        this.usuario = System.getenv("root");
-        this.senha = System.getenv("fFLUZAO2004.");
+        this.usuario = System.getenv("");
+        this.senha = System.getenv("");
     }
 
     public static ConnectionFactory getInstance() {
