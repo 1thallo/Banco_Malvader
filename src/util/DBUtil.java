@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DBUtil {
 
     private static final String URL = "jdbc:mysql://localhost:3306/mydb"; // Substitua pelo seu banco de dados
-    private static final String USER = "root"; // Substitua pelo usuário do seu banco
-    private static final String PASSWORD = "fFLUZAO2004."; // Substitua pela senha do seu banco
+    private static final String USER = ""; // Substitua pelo usuário do seu banco
+    private static final String PASSWORD = ""; // Substitua pela senha do seu banco
 
     // Método para obter uma conexão com o banco de dados
     public static Connection getConnection() throws SQLException {
